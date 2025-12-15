@@ -1,0 +1,47 @@
+/**
+   * =================================================================
+   * VARIANT SET FOR INPUT COMPONENT
+   * =================================================================
+   * These variants simplify styling the component in different states
+   * (idle, hover, active, disabled, error).
+   * They are smart enough to work correctly whether you place the
+   * class on the container (with data-state) or on a child element
+   * inside (using group).
+   */
+
+  /*
+   * NORMAL State (Enabled & Idle)
+   * Applies when: data-state="enabled"
+   * Replaces: data-[state=enabled]: and group-data-[state=enabled]:
+   */
+   @variant input-idle (&[data-state="enabled"], .group[data-state="enabled"] &);
+
+   /*
+    * HOVER State (When Enabled)
+    * Applies when: data-state="enabled" and is hovered.
+    * Replaces: hover: and group-hover: in the enabled state.
+    */
+   @variant input-hover (&[data-state="enabled"]:hover, .group[data-state="enabled"]:hover &);
+ 
+   /*
+    * ACTIVE State (When Enabled and Focused)
+    * Applies when: data-state="enabled" and the input inside is focused.
+    * Very useful for changing the border or background when the user is typing.
+    * Replaces: focus-within:
+    */
+   @variant input-active (&[data-state="enabled"]:focus-within, .group[data-state="enabled"]:focus-within &);
+ 
+   /*
+    * ERROR State
+    * Applies when: data-state="error"
+    * Replaces: data-[state=error]: and group-data-[state=error]:
+    */
+   @variant input-error (&[data-state="error"], .group[data-state="error"] &);
+ 
+   /*
+    * DISABLED State
+    * Applies when: data-state="disabled".
+    * It also includes the `:disabled` pseudo-class to correctly style the input tag.
+    * Replaces: data-[state=disabled]:, group-data-[state=disabled]:, and disabled:
+    */
+   @variant input-disabled (&[data-state="disabled"], .group[data-state="disabled"] &, .group[data-state="disabled"] &:disabled);

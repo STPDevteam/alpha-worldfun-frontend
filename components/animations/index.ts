@@ -1,0 +1,1 @@
+export { TabContentAnimator } from "./TabContentAnimator";
